@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'user/bootstrap.min.css' %}">
+  <title>Let's fight COVID together !</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Covid 19</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Let's fight together</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" target="_blank"
+              href="https://wa.me/?text=Check%20this%20websitte%20for%20latest%20resource%20updates%20on%20COVID%20from%20all%20the%20internet%20\n%20Hey%20www.covid19resourcesamplify.com">Share</a>
+          </li>
+          <li class="nav-item">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <form name="formed" action="{% if values.user == 'R' %} / {% else %} /thankyou {% endif %}" method="POST">
+      {% csrf_token %} 
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="user" value="R" id="flexRadioDefault1"{% if values.user == 'P' %}checked disabled {% endif %} {% if values.user != 'P' %} checked {% endif %}{{values.user}}>
+            <label class="form-check-label" for="flexRadioDefault1">
+              Request
+            </label>
+          </div>  
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="user" value="P" id="flexRadioDefault2" {% if values.user == 'P' %}checked disabled {% endif %}>
+            <label class="form-check-label" for="flexRadioDefault2" >
+              Provide
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="form-outline">
+            <input type="text" id="formControlLg" name="city" class="form-control form-control-lg"
+              placeholder="{{values.city}}" required {% if values.user == 'P' %}value="{{values.city}}" {% endif %}/>
+          </div>
+        </div>  
+        </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="form-check">
+            <input type="hidden" name="bed" value="False" />
+            <input class="form-check-input" type="checkbox" name="bed" value="True" id="flexCheckDefault" {% if values.user == 'P' and values.bed == 'True' %}checked="checked" value="True"{% endif %}>
+            <label class="form-check-label" for="flexCheckDefault">
+              Bed
+            </label>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="form-check">
+            <input type="hidden" name="icu" value="False" />
+            <input class="form-check-input" type="checkbox" name="icu" value="True" id="flexCheckDefault" {% if values.user == 'P' and values.icu == 'True' %}checked value="True"{% endif %}>
+            <label class="form-check-label" for="flexCheckDefault">
+              ICU
+            </label>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="form-check">
+            <input type="hidden" name="oxygen" value="False" />
+            <input class="form-check-input" type="checkbox" value="True" name="oxygen" id="flexCheckDefault" {% if values.user == 'P' and values.oxygen == 'True' %}checked{% endif %}>
+            <label class="form-check-label" for="flexCheckDefault">
+              Oxygen
+            </label>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="form-check">
+            <input type="hidden" name="ventilator" value="False" />
+            <input class="form-check-input" type="checkbox" value="True" name="ventilator" id="flexCheckDefault" {% if values.user == 'P' and values.ventilator == 'True' %}checked{% endif %}>
+            <label class="form-check-label" for="flexCheckDefault">
+              Ventilator
+            </label>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="form-check">
+            <input type="hidden" name="tests" value="False" />
+            <input class="form-check-input" type="checkbox" value="True" name="tests" id="flexCheckDefault" {% if values.user == 'P' and values.tests == 'True' %}checked{% endif %}>
+            <label class="form-check-label" for="flexCheckDefault">
+              Tests
+            </label>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="form-check">
+            <input type="hidden" name="fabiblu" value="False" />
+            <input class="form-check-input" type="checkbox" value="True"  name="fabiblu" id="flexCheckDefault" {% if values.user == 'P' and values.fabiblu == 'True' %}checked{% endif %}>
+            <label class="form-check-label" for="flexCheckDefault">
+              Fabiflu
+            </label>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="form-check">
+            <input type="hidden" name="remdesivir" value="False" />
+            <input class="form-check-input" type="checkbox" value="True" name="remdesivir" id="flexCheckDefault" {% if values.user == 'P' and values.remdesivir == 'True' %}checked{% endif %}>
+            <label class="form-check-label" for="flexCheckDefault">
+              Remdesivir
+            </label>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="form-check">
+            <input type="hidden" name="favipiravir" value="False" />
+            <input class="form-check-input" type="checkbox" value="True" name="favipiravir" id="flexCheckDefault" {% if values.user == 'P' and values.favipiravir == 'True' %}checked{% endif %}>
+            <label class="form-check-label" for="flexCheckDefault">
+              Favipiravir
+            </label>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="form-check">
+            <input type="hidden" name="tocilizumab" value="False" />
+            <input class="form-check-input" type="checkbox" value="True" name="tocilizumab" id="flexCheckDefault" {% if values.user == 'P' and values.tocilizumab == 'True' %}checked{% endif %}>
+            <label class="form-check-label" for="flexCheckDefault">
+              Tocilizumab
+            </label>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="form-check">
+            <input type="hidden" name="plasma" value="False" />
+
+            <input class="form-check-input" type="checkbox" value="True" name="plasma" id="flexCheckDefault" {% if values.user == 'P' and values.plasma == 'True' %}checked{% endif %}>
+            <label class="form-check-label" for="flexCheckDefault">
+              Plasma
+            </label>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="form-check">
+            <input type="hidden" name="food" value="False" />
+
+            <input class="form-check-input" type="checkbox" value="True" name="food" id="flexCheckDefault" {% if values.user == 'P' and values.food == 'True' %}checked{% endif %}>
+            <label class="form-check-label" for="flexCheckDefault">
+              Food
+            </label>
+          </div>
+        </div>
+      </div>
+
+      {% if values.user == 'R' %}
+       <button type="submit" class="btn btn-success">Submit</button>
+      {% else %}
+      <div class="input-group mb-3">
+        <label for="contactname">Contact Person</label>
+        <input type="text" id="contactname" class="form-control" name="contactperson" placeholder="Contact Person" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <label for="contactname">Number or Mail Id !r<br></label>
+        <input type = "text" class="form-control" name="contactdetails" placeholder = "Phone or Email" required pattern = "^(?:\d{10}|\w+@\w+\.\w{2,3})$"/>     
+       </div>
+       <br>
+       <button type="submit" class="btn btn-success">Submit</button>
+       
+      {% endif %}
+    </form>
+  </div>
+
+  <div class="container">
+    {% if posts.stat == '404' or posts == False %}
+      <h3>We are sorry but we don't have any leads on this !</h3>
+    {% else %}
+    <div class="card-columns">
+    {% for x in posts %}
+    <div class="card border-dark">
+      <div class="card-body">
+        <h5 class="card-title">{{x.contactperson}}</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        {% if x.status == 'Verified' %}
+          <li class="list-group-item" style="color: green; text-decoration: underline;">Verified</li>
+        {% endif %}
+        {% if x.status == 'Non Verified' %}
+        <li class="list-group-item" style="color: red; text-decoration: underline;">Non Verified</li>
+        {% endif %}
+
+        {% if x.bed == True %}
+        <li class="list-group-item">Bed</li>
+        {% endif %}  
+        {% if x.oxygen == True %}
+        <li class="list-group-item">Oxygen</li>
+        {% endif %}         
+        {% if x.ventilator == True %}
+        <li class="list-group-item" color="green">Ventilator</li>
+        {% endif %} 
+
+        
+        {% if x.tests == True %}
+        <li class="list-group-item">Tests</li>
+        {% endif %}  
+        {% if x.fabiflu == True %}
+        <li class="list-group-item">Fabiflu</li>
+        {% endif %}         
+        {% if x.remdesivir == True %}
+        <li class="list-group-item" color="green">Remdesivir</li>
+        {% endif %} 
+
+        
+        {% if x.favipiravir == True %}
+        <li class="list-group-item">Favipiravir</li>
+        {% endif %}  
+        {% if x.tocilizumab == True %}
+        <li class="list-group-item">Tocilizumab</li>
+        {% endif %}         
+        {% if x.plasma == True %}
+        <li class="list-group-item" color="green">Plasma</li>
+        {% endif %} 
+
+        
+        {% if x.food == True %}
+        <li class="list-group-item">Food</li>
+        {% endif %}  
+
+  
+      </ul>
+      <div class="card-body">
+        {% if x.phone %}
+          <a href="tel:{{x.phone}}" class="card-link">Call</a>
+        {% endif %}
+
+        {% if x.mailid %}
+          <a href="mailto:{{x.mailid}}" class="card-link">Mail Id</a>
+        {% endif %}  
+      </div>
+    </div> 
+    {% endfor %}  
+  {% endif %}  
+    </div>
+
+  </div>
+
+  <script src="{% static 'user/jquery.min.js' %}"></script>
+  <script>
+    function validateAndSend() {
+        if (formed..value == '' && myForm.mobile.value == '') {
+            alert('You have to enter at least one phone number.');
+            return false;
+        }
+        else {
+            myForm.submit();
+        }
+    }
+</script>
+</body>
+
+</html>
