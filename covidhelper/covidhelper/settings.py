@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-p)=z1s)2ocn=c84g8hhp@7^by$=hz4j)x%as%3=-2i)+%z_q)=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['c32bae02ad9d.ngrok.io']
+ALLOWED_HOSTS = ['c32bae02ad9d.ngrok.io' , '37.59.55.185']
 
 
 # Application definition
@@ -76,9 +76,10 @@ WSGI_APPLICATION = 'covidhelper.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'covid19',
-        'USER': 'root',
-        'PASSWORD': 'I@m@ry@n904493'
+        'NAME' : 'AW8qizObRO',
+        'USER': 'AW8qizObRO',
+        'PASSWORD': '5GLlAJ16dD',
+        'HOST': '37.59.55.185',
     }
 }
 
