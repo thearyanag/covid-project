@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-p)=z1s)2ocn=c84g8hhp@7^by$=hz4j)x%as%3=-2i)+%z_q)='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['c32bae02ad9d.ngrok.io' ,'9c1fe877c867.ngrok.io', '37.59.55.185']
+ALLOWED_HOSTS = ['127.0.0.1','c32bae02ad9d.ngrok.io' ,'9c1fe877c867.ngrok.io', '37.59.55.185']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleWare',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
